@@ -78,3 +78,8 @@ button{
 	font-weight: bold;
 }
 
+.newContainer {
+	border: solid #1DA1F2 0.7px;
+	padding: 4px;
+	margin: 6px;
+}

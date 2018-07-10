@@ -11,6 +11,7 @@ function clickButton() {
 	var newPar = document.createElement("p");
 	var parDate = document.createElement("p");
 	var newContainer = document.createElement("div");
+	newContainer.classList.add("newContainer");
 	
 	var date = new Date();
 	newPar.innerHTML = text;
