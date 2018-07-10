@@ -1,14 +1,8 @@
-/*
-VERSÃO 0.0.1
-- Crie um formulário que permita inserir um texto e um botão para "twittar". --> html
-- Adicione um evento de click ao botão ou de submit no formulário. ok
-- No evento, obter o texto. --> salvar o texto numa variável ok
-- Adicione o texto ao HTML.
-*/
 
-var container = document.getElementsByClassName("container")[0];
-document.getElementsByClassName("btn-tweet")[0].disabled = true;
-var counter = document.getElementById("counter").textContent = 140;
+var container = document.getElementById("container");
+document.getElementById("btn-tweet").disabled = true;
+document.getElementById("counter").textContent = 140;
+var counter = 140;
 
 function clickButton() {
 	var text = document.getElementsByClassName("message")[0].value;
@@ -16,32 +10,35 @@ function clickButton() {
 	newPar.textContent = text;
 	container.appendChild(newPar);
 	document.getElementsByClassName("message")[0].value = '';
-	document.getElementsByClassName("btn-tweet")[0].disabled = true;
+	document.getElementById("btn-tweet").disabled = true;
 }
 
-/* VERSÃO 0.0.2
--Não inserir texto vazio (desativar o botão "tweet")
-
-========> ARRUMAR
--Conte o número de caracteres de forma regressiva.
-	QUando algo é pressionado (excessao de enter) uma variavel é decrementada
-	se for Backspace tem q incrementar
-*/
-
 function enableButton(event) {
-	document.getElementsByClassName("btn-tweet")[0].disabled = false;
+	document.getElementById("btn-tweet").disabled = false;
   var charCode = event.which || event.keyCode; //pega o keyCode do caracter
-  //console.log(typeof(charCode));
-  //console.log(charCode);
-  if (charCode !== 32 || charCode !== 13){ counterDecrease(); } //nao ta funcionando
+  if((charCode >= 65 && charCode <= 90) || charCode === 32) {
+  	counterDecrease();
+  } 
+  if (charCode === 8 && counter < 140) {
+  	counterIncrease();
+  }
 }
 
 function counterDecrease() {
 	document.getElementById("counter").textContent -= 1;
 	counter -= 1;
-	console.log(typeof(counter));
-	if (counter < 0){
-		document.getElementsByClassName("btn-tweet")[0].disabled = true;
+	verifyCounter(counter);
+}
+
+function counterIncrease() { //para backspace
+	counter += 1;
+	document.getElementById("counter").textContent = counter;
+	verifyCounter(counter);
+}
+
+function verifyCounter (counter) {
+		if (counter < 0){
+		document.getElementById("btn-tweet").disabled = true;
 	} 
 	if (counter <= 20 && counter > 10){
 		document.getElementById("counter").style.color = "orange";
@@ -51,16 +48,8 @@ function counterDecrease() {
 	}
 }
 
-function counterIncrease() { //para backspace
+//Ao pressionar enter (/n) aumente a área de texto de acordo com o tamanho do texto.
+//	
 
-}
-
-
-/*VERSÃO 0.0.3   ==> ARRUMAR BACKSPACE
-Se você passar os 140 caracteres, desative o botão. ok
-Se você passar os 120 caracteres, mostre o contador com outra cor. (counter entre 20 e 10) ok
-Se você passar os 130 caracteres, mostre o contador com outra cor. ok
-Se você passar os 140 caracteres, mostre o contador em negativo. ok
-*/
 
 
