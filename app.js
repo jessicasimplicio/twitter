@@ -9,7 +9,8 @@ var counter = 140;
 function clickButton() {
 	var text = document.getElementById("message").value;
 	var newPar = document.createElement("p");
-	newPar.textContent = text;
+	var date = new Date();
+	newPar.innerHTML = text + "<br/>" + date.toUTCString();
 	container.appendChild(newPar);
 	document.getElementById("message").value = '';
 	document.getElementById("btn-tweet").disabled = true;
@@ -25,14 +26,9 @@ function enableButton(event) {
   	document.getElementById("btn-tweet").disabled = false;
   	counterIncrease();
   }
-  if (charCode === 13){
-  	//document.getElementsByClassName("message")[0].
-  	//textArea.setAttribute('rows', 10);
-  }
 
   if (document.getElementById("message").scrollTop != 0) {
   	resizeField();
-  	console.log("ajaj");
   }
 }
 
@@ -68,8 +64,6 @@ function resizeField(){
 }
 
 
-//Ao pressionar enter (/n) aumente a área de texto de acordo com o tamanho do texto.
-//	
 
 
 
