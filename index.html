@@ -1,18 +1,22 @@
-<DOCTYPE hyml>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
   	<meta charset="utf-8">
     <title>Twitter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://file.myfontastic.com/EaEZAes5DpqM6cYStGsm7a/icons.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1 id="title">Twitter</h1>
+    <header>    
+      <h1><span class="icon-twitter"></span> Twitter</h1>
     </header>
     <section>
       <div id="container">
-        <input class="message" type="text" name="message" onkeydown="enableButton(event)">
-        <p id="counter"></p>
-        <button id="btn-tweet" onclick="clickButton()">Tweet</button>
+        <form>
+          <input class="message" type="text" name="message" onkeydown="enableButton(event)" placeholder="How are you feeling today?">
+          <p id="counter"></p>
+          <button id="btn-tweet" onclick="clickButton()">Tweet</button>
+        </form>
     </div>
     </section>    
     <script type="text/javascript" src="app.js"></script>
