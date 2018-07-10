@@ -9,9 +9,19 @@ var counter = 140;
 function clickButton() {
 	var text = document.getElementById("message").value;
 	var newPar = document.createElement("p");
+	var parDate = document.createElement("p");
+	var newContainer = document.createElement("div");
+	
 	var date = new Date();
-	newPar.innerHTML = text + "<br/>" + date.toUTCString();
-	container.appendChild(newPar);
+	newPar.innerHTML = text;
+	//newPar.innerHTML = text;
+	parDate.innerHTML = moment().subtract(6, 'days').calendar(); 
+ 	parDate.classList.add("date");
+
+	newContainer.appendChild(newPar);
+	newContainer.appendChild(parDate);
+	container.appendChild(newContainer);
+
 	document.getElementById("message").value = '';
 	document.getElementById("btn-tweet").disabled = true;
 }
