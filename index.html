@@ -13,10 +13,11 @@
     <section>
       <div id="container">
         <form>
-          <input class="message" type="text" name="message" onkeydown="enableButton(event)" placeholder="What's happening?">
+          <textarea id="message" name="message" rows="2" onkeydown="enableButton(event)" placeholder="What's happening?"></textarea>
           <p id="counter"></p>
           <button id="btn-tweet" onclick="clickButton()">Tweet</button>
         </form>
+        <hr/>
     </div>
     </section>    
     <script type="text/javascript" src="app.js"></script>
