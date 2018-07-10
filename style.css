@@ -35,10 +35,33 @@ section {
 #container {
 	height: auto;
 	width: 400px;
-	display: flex;
-	justify-content: center;
+	display: block;
 	margin: 20px;
 	padding: 20px;
 	background: #fff;
+}
+
+input {
+	font-size: 16px;
+	height: 20px;
+	width: 370px;
+	border-radius: 5px;
+	border: solid #1DA1F2 1px;
+	padding: 3px;
+}
+
+p {
+	border: 10px;
+	padding: 
+}
+
+#counter {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+button{
+	border-radius: 10px;
+	border: none;
 }
 
