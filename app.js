@@ -14,12 +14,15 @@ function clickButton() {
 }
 
 function enableButton(event) {
-	document.getElementById("btn-tweet").disabled = false;
-  var charCode = event.which || event.keyCode; //pega o keyCode do caracter
+  var charCode = event.which || event.keyCode; 
   if((charCode >= 65 && charCode <= 90) || charCode === 32) {
+  	document.getElementById("btn-tweet").disabled = false;
+
   	counterDecrease();
   } 
   if (charCode === 8 && counter < 140) {
+  	document.getElementById("btn-tweet").disabled = false;
+
   	counterIncrease();
   }
 }
@@ -30,14 +33,14 @@ function counterDecrease() {
 	verifyCounter(counter);
 }
 
-function counterIncrease() { //para backspace
+function counterIncrease() {
 	counter += 1;
 	document.getElementById("counter").textContent = counter;
 	verifyCounter(counter);
 }
 
 function verifyCounter (counter) {
-		if (counter < 0){
+	if (counter < 0 || counter === 140){
 		document.getElementById("btn-tweet").disabled = true;
 	} 
 	if (counter <= 20 && counter > 10){
@@ -45,6 +48,9 @@ function verifyCounter (counter) {
 	}
 	if (counter <= 10){
 		document.getElementById("counter").style.color = "red";
+	}
+	if (counter <= 140 && counter > 20){
+		document.getElementById("counter").style.color = "black"
 	}
 }
 
